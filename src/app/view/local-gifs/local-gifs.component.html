@@ -1,0 +1,35 @@
+<input
+  type="file"
+  style="display: none;"
+  accept="image/gif"
+  #fileUpload
+  (change)="onFileSelected($event)"
+  multiple
+>
+<div class="local-gifs">
+  <div class="header">
+    <button mat-icon-button routerLink="/home">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="spacer"></div>
+    <button mat-icon-button matTooltip="Upload Gifs" (click)="fileUpload.click()">
+      <mat-icon>upload</mat-icon>
+    </button>
+  </div>
+  <div class="content" *ngIf="cardInputs$ | async as cardInputs">
+    <app-empty-placeholder
+      *ngIf="!cardInputs.length"
+      appFileUploadDragNDrop
+      icon="upload_file"
+      text="Drag Gifs Here"
+      accepted="image/gif"
+      (filesUploaded)="handleFileSelected($event)"
+    ></app-empty-placeholder>
+    <app-card
+      *ngFor="let input of cardInputs"
+      [imgSrc]="input.imageSrc"
+      [title]="input.title"
+      (click)="expandImage(input.imageSrc)"
+    ></app-card>
+  </div>
+</div>

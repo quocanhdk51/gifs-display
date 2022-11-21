@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+
+  @media(min-width: 40rem) {
+    width: 50%;
+  }
+  @media(min-width: 56rem) {
+    width: 33.3333%;
+  }
+}
+
+.card-container {
+  flex: 1 1 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+
+  .image {
+    position: relative;
+    flex: 1 1 0px;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  .title {
+    position: relative;
+    margin-top: 2px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.5;
+    overflow: hidden;
+    margin: 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+  }
+}

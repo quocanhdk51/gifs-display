@@ -1,0 +1,28 @@
+.local-gifs {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+
+  .header {
+    position: relative;
+    height: 60px;
+    display: flex;
+    padding: 0 16px;
+
+    .spacer {
+      position: relative;
+      flex: 1 1 0px;
+    }
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex: 1 1 0px;
+  }
+}

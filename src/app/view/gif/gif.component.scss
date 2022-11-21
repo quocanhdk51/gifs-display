@@ -1,0 +1,116 @@
+.gif-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .header {
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .gif-container {
+    position: relative;
+    flex: 1 1 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    @media(min-width: 765px) {
+      flex-direction: row;
+    }
+
+    .info {
+      position: relative;
+      flex-basis: 33.33%;
+      display: flex;
+      flex-direction: column;
+      margin: 12px;
+
+      .gif-info {
+
+        .title {
+          color: white;
+          font-size: 17px;
+          font-weight: bold;
+          line-height: 1.5;
+          overflow: hidden;
+          margin: 0px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          -webkit-font-smoothing: antialiased;
+        }
+
+        .user {
+          position: relative;
+          display: flex;
+          margin-top: 3px;
+
+          .image {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+          }
+
+          .detail {
+            position: relative;
+            margin-left: 4px;
+
+            .display-name {
+              font-size: 16px;
+              font-weight: 900;
+              line-height: 1.1;
+            }
+
+            .username {
+              font-size: 14px;
+              font-weight: bold;
+              color: #a6a6a6;
+            }
+          }
+        }
+      }
+    }
+
+    .gif {
+      position: relative;
+      flex-basis: 66.66%;
+
+      &.focused {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: black !important;
+      }
+
+      .image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        .mat-icon-button {
+          position: relative;
+          float: right;
+        }
+      }
+    }
+  }
+}

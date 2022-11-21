@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  giphy: {
+    api: 'https://api.giphy.com/v1/',
+    api_key: '1llkWb3ZQ054kKHAuKisVZHJAvqkZO69'
+  },
 };

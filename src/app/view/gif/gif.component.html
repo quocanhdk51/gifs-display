@@ -1,0 +1,42 @@
+<div class="gif-wrapper">
+  <div class="header">
+    <button mat-icon-button routerLink="/home">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div class="gif-container" *ngIf="gifObject$ | async as gifObject">
+    <div class="info">
+      <div class="gif-info">
+        <div class="title">
+          {{ gifObject.title }} ({{ gifObject.rating | uppercase }})
+        </div>
+        <div class="last-updated">
+          {{ gifObject.update_datetime || gifObject.create_datetime || gifObject.import_datetime || gifObject.trending_datetime | date: 'MMM d, y, h:mm:ss a'}}
+        </div>
+        <div class="user">
+          <img class="image" [src]="gifObject.user.avatar_url">
+          <div class="detail">
+            <div class="display-name">
+              {{ gifObject.user.display_name }}
+            </div>
+            <div class="username">
+              @{{ gifObject.user.username }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="action"></div>
+    </div>
+    <div class="gif" [ngStyle]="{'background': randomBackgroundColor}" [class.focused]="imageFocused$ | async">
+      <img class="image" [src]="gifObject.images.original.url">
+      <div class="overlay">
+        <button mat-icon-button (click)="toggleImageFocus()">
+          <mat-icon *ngIf="imageFocused$ | async; else expand">close</mat-icon>
+          <ng-template #expand>
+            <mat-icon>open_in_full</mat-icon>
+          </ng-template>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="home-container">
+  <div class="header">
+    <app-search (searching)="onSearch($event)"></app-search>
+    <button mat-icon-button matTooltip="My Gifs" routerLink="/my-gifs">
+      <mat-icon>folder</mat-icon>
+    </button>
+  </div>
+  <div class="content" (scroll)="onScroll($event)">
+    <ng-container *ngIf="data$ | async as data">
+      <app-card
+        *ngFor="let gifObject of data"
+        [routerLink]="['/gif', gifObject.id]"
+        [imgSrc]="gifObject.images.original.url"
+        [title]="gifObject.title"
+      ></app-card>
+      <app-empty-placeholder *ngIf="!data.length"></app-empty-placeholder>
+    </ng-container>
+  </div>
+</div>

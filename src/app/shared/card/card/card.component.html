@@ -1,0 +1,6 @@
+<div class="card-container" [ngStyle]="{'background': randomBackgroundColor}" (click)="onClick($event)">
+  <img *ngIf="imgSrc" class="image" [src]="imgSrc | safeResourceUrl" crossorigin="anonymous">
+  <div *ngIf="title" class="title">
+    {{ title }}
+  </div>
+</div>
